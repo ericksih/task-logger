@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const AddTaskModal = () => {
+const EditTaskModal = () => {
   const [message, setMessage] = useState('');
   const [attention, setAttention] = useState(false);
   const [user, setUser] = useState('');
@@ -18,17 +18,16 @@ const AddTaskModal = () => {
       setAttention(false);
       setUser('');
       M.toast({
-        html: `Task Created By ${user}`,
+        html: `Task Edited By ${user}`,
         classes: 'teal lighten-2 black-text',
       });
     }
   };
 
   return (
-    <div id='add-task-modal' className='modal' style={modalStyle}>
+    <div id='edit-task-modal' className='modal' style={modalStyle}>
       <div className='modal-content'>
-        <h4>Add a new task</h4>
-        <br />
+        <h4> Edit a task </h4>
         <div className='row'>
           <div className='input-field'>
             <input
@@ -94,4 +93,4 @@ const modalStyle = {
   height: '75%',
 };
 
-export default AddTaskModal;
+export default EditTaskModal;
