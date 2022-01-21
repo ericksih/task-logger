@@ -3,7 +3,7 @@
     {
       "id": 1,
       "message": "Hello first task",
-      "attention": false,
+      "attention": true,
       "date": "02-02-2022",
       "user": "user1"
     },
@@ -12,7 +12,7 @@
       "message": "hello from id 2",
       "attention": false,
       "date": "01-01-2022",
-      "user": "user2"
+      "user": "user 2 .."
     }
   ],
   "users": [

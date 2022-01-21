@@ -2,11 +2,11 @@ import React from 'react';
 
 const SearchBar = () => {
   return (
-    <nav style={{ marginBottom: '40px' }} className='teal lighten-2'>
+    <nav style={{ marginBottom: '30px' }} className='teal lighten-2'>
       <div className='nav-wrapper'>
         <form>
           <div className='input-field'>
-            <input id='search' type='search' />
+            <input id='search' type='search' placeholder='Search Tasks..' />
             <label className='label-icon' htmlFor='search'>
               <i className='material-icons'>search</i>
             </label>
