@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import './App.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import SearchBar from './components/layout/SearchBar';
+import Tasks from './components/Tasks/Tasks';
 
 function App() {
   useEffect(() => {
@@ -9,9 +11,12 @@ function App() {
   });
 
   return (
-    <div className='App'>
-      <h1> Hello, World! </h1>
-    </div>
+    <Fragment>
+      <SearchBar />
+      <div className='container'>
+        <Tasks />
+      </div>
+    </Fragment>
   );
 }
 
