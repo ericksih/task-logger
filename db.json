@@ -1,0 +1,30 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "message": "Hello first task",
+      "attention": false,
+      "date": "02-02-2022",
+      "user": "user1"
+    },
+    {
+      "id": 2,
+      "message": "hello from id 2",
+      "attention": false,
+      "date": "01-01-2022",
+      "user": "user2"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Jane",
+      "lastName": "Roe"
+    },
+    {
+      "id": 2,
+      "firstName": "Jack",
+      "lastName": "Doe"
+    }
+  ]
+}
