@@ -28,7 +28,7 @@ const Tasks = () => {
   return (
     <ul className='collection with-header'>
       <li className='collection-header'>
-        <h4 className='center'> Task List </h4>
+        <h4 className='center'>Task List</h4>
       </li>
       {!loading && tasks.length === 0 ? (
         <p className='center'> No Task To Show... </p>

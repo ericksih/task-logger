@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Moment from 'react-moment';
 
 const TaskItem = ({ task }) => {
@@ -22,7 +21,7 @@ const TaskItem = ({ task }) => {
           <Moment format='MMMM Do YYYY, h:mm:ss a'>{task.date}</Moment>
         </span>
         <a className='secondary-content' href='#!'>
-          <i className='material-icons grey-text'>delete</i>
+          <i className='material-icons'>delete</i>
         </a>
       </div>
     </li>
