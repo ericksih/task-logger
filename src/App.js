@@ -9,6 +9,8 @@ import AddTaskModal from './components/Tasks/AddTaskModal';
 import EditTaskModal from './components/Tasks/EditTaskModal';
 import AddUserModal from './components/Users/AddUserModal';
 import UserListModel from './components/Users/UserListModel';
+import store from './store';
+import { Provider } from 'react-redux';
 
 function App() {
   useEffect(() => {
@@ -16,17 +18,19 @@ function App() {
   });
 
   return (
-    <Fragment>
-      <SearchBar />
-      <div className='container'>
-        <AddBtn />
-        <Tasks />
-        <AddTaskModal />
-        <EditTaskModal />
-        <AddUserModal />
-        <UserListModel />
-      </div>
-    </Fragment>
+    <Provider store={store}>
+      <Fragment>
+        <SearchBar />
+        <div className='container'>
+          <AddBtn />
+          <Tasks />
+          <AddTaskModal />
+          <EditTaskModal />
+          <AddUserModal />
+          <UserListModel />
+        </div>
+      </Fragment>
+    </Provider>
   );
 }
 
