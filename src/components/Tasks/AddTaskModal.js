@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { addTask } from '../../actions/taskAction';
 
-const AddTaskModal = () => {
+const AddTaskModal = ({ addTask }) => {
   const [message, setMessage] = useState('');
   const [attention, setAttention] = useState(false);
   const [user, setUser] = useState('');
@@ -13,7 +16,15 @@ const AddTaskModal = () => {
         classes: 'red darken-2',
       });
     } else {
-      console.log(message, attention, user);
+      const newTask = {
+        message,
+        user,
+        attention,
+        date: new Date(),
+      };
+
+      addTask(newTask);
+
       setMessage('');
       setAttention(false);
       setUser('');
@@ -89,9 +100,13 @@ const AddTaskModal = () => {
   );
 };
 
+AddTaskModal.prototypes = {
+  addTask: PropTypes.func.isRequired,
+};
+
 const modalStyle = {
   width: '75%',
   height: '75%',
 };
 
-export default AddTaskModal;
+export default connect(null, { addTask })(AddTaskModal);

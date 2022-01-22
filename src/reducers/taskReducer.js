@@ -1,4 +1,9 @@
-import { GET_TASKS, SET_LOADING, TASKS_ERROR } from '../actions/types';
+import {
+  GET_TASKS,
+  SET_LOADING,
+  TASKS_ERROR,
+  ADD_TASK,
+} from '../actions/types';
 
 // initialState is defined in src/reducers/taskReducer.js and is used in the mapStateToProps function above to define the initial state of the reducer function below (taskReducer) and to define the initial state of the component (Tasks) in src/components/Tasks/Tasks.js   (task: { tasks: [], loading: false })
 const initialState = {
@@ -15,6 +20,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         tasks: action.payload,
+        loading: false,
+      };
+    case ADD_TASK:
+      return {
+        ...state,
+        tasks: [action.payload, ...state.tasks],
         loading: false,
       };
     case SET_LOADING:

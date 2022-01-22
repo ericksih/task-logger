@@ -32,6 +32,7 @@ const Tasks = ({ task: { tasks, loading }, getTasks }) => {
 
 Tasks.prototypes = {
   task: PropTypes.object.isRequired,
+  getTasks: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
