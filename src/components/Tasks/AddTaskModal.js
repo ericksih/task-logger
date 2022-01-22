@@ -100,7 +100,7 @@ const AddTaskModal = ({ addTask }) => {
   );
 };
 
-AddTaskModal.prototypes = {
+AddTaskModal.propTypes = {
   addTask: PropTypes.func.isRequired,
 };
 

@@ -1,5 +1,12 @@
-import { GET_TASKS, SET_LOADING, TASKS_ERROR, ADD_TASK } from './types';
+import {
+  GET_TASKS,
+  SET_LOADING,
+  TASKS_ERROR,
+  ADD_TASK,
+  DELETE_TASK,
+} from './types';
 
+// Get All Tasks From Server
 export const getTasks = () => async (dispatch) => {
   try {
     setLoading();
@@ -38,6 +45,27 @@ export const addTask = (task) => async (dispatch) => {
     dispatch({
       type: ADD_TASK,
       payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: TASKS_ERROR,
+      payload: err.response.data,
+    });
+  }
+};
+
+// Detele Task by ID from the server
+export const deleteTask = (id) => async (dispatch) => {
+  try {
+    setLoading();
+
+    await fetch(`/tasks/${id}`, {
+      method: 'DELETE',
+    });
+
+    dispatch({
+      type: DELETE_TASK,
+      payload: id,
     });
   } catch (err) {
     dispatch({

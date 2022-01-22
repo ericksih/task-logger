@@ -1,8 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
+import { connect } from 'react-redux';
+import { deleteTask } from '../../actions/taskAction';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
-const TaskItem = ({ task }) => {
+const TaskItem = ({ task, deleteTask }) => {
+  const onDelete = () => {
+    deleteTask(task.id);
+    M.toast({ html: `Task Deleted` });
+  };
+
   return (
     <li className='collection-item'>
       <div>
@@ -20,7 +28,7 @@ const TaskItem = ({ task }) => {
           <span className='black-text'>{task.user}</span> on{' '}
           <Moment format='MMMM Do YYYY, h:mm:ss a'>{task.date}</Moment>
         </span>
-        <a className='secondary-content' href='#!'>
+        <a onClick={onDelete} className='secondary-content' href='#!'>
           <i className='material-icons'>delete</i>
         </a>
       </div>
@@ -30,6 +38,7 @@ const TaskItem = ({ task }) => {
 
 TaskItem.propTypes = {
   task: PropTypes.object.isRequired,
+  deleteTask: PropTypes.func.isRequired,
 };
 
-export default TaskItem;
+export default connect(null, { deleteTask })(TaskItem);

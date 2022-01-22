@@ -30,7 +30,7 @@ const Tasks = ({ task: { tasks, loading }, getTasks }) => {
   );
 };
 
-Tasks.prototypes = {
+Tasks.propTypes = {
   task: PropTypes.object.isRequired,
   getTasks: PropTypes.func.isRequired,
 };
