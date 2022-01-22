@@ -4,6 +4,9 @@ import {
   TASKS_ERROR,
   ADD_TASK,
   DELETE_TASK,
+  UPDATE_TASK,
+  CLEAR_CURRENT,
+  SET_CURRENT,
 } from '../actions/types';
 
 // initialState is defined in src/reducers/taskReducer.js and is used in the mapStateToProps function above to define the initial state of the reducer function below (taskReducer) and to define the initial state of the component (Tasks) in src/components/Tasks/Tasks.js   (task: { tasks: [], loading: false })
@@ -34,6 +37,23 @@ export default (state = initialState, action) => {
         ...state,
         tasks: state.tasks.filter((task) => task.id !== action.payload),
         loading: false,
+      };
+    case UPDATE_TASK:
+      return {
+        ...state,
+        tasks: state.tasks.map((task) =>
+          task.id === action.payload.id ? action.payload : task
+        ),
+      };
+    case SET_CURRENT:
+      return {
+        ...state,
+        current: action.payload,
+      };
+    case CLEAR_CURRENT:
+      return {
+        ...state,
+        current: null,
       };
     case SET_LOADING:
       return {

@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { updateTask } from '../../actions/taskAction';
 
-const EditTaskModal = () => {
+const EditTaskModal = ({ updateTask, current }) => {
   const [message, setMessage] = useState('');
   const [attention, setAttention] = useState(false);
   const [user, setUser] = useState('');
+
+  useEffect(() => {
+    if (current) {
+      setMessage(current.message);
+      setAttention(current.attention);
+      setUser(current.user);
+    }
+  }, [current]);
 
   const onSubmit = () => {
     if (!message || !user) {
@@ -13,7 +24,16 @@ const EditTaskModal = () => {
         classes: 'red darken-2',
       });
     } else {
-      console.log(message, attention, user);
+      const updTask = {
+        id: current.id,
+        message,
+        user,
+        attention,
+        date: new Date(),
+      };
+
+      updateTask(updTask);
+
       setMessage('');
       setAttention(false);
       setUser('');
@@ -36,9 +56,7 @@ const EditTaskModal = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
-            <label htmlFor='message' className='active'>
-              Task Message
-            </label>
+            <label htmlFor='message' className='active'></label>
           </div>
         </div>
         <div className='row'>
@@ -88,9 +106,18 @@ const EditTaskModal = () => {
   );
 };
 
+EditTaskModal.propTypes = {
+  current: PropTypes.object,
+  updateTask: PropTypes.func.isRequired,
+};
+
 const modalStyle = {
   width: '75%',
   height: '75%',
 };
 
-export default EditTaskModal;
+const mapStateToProps = (state) => ({
+  current: state.task.current, // current is the task that is being edited by the user in the edit modal
+});
+
+export default connect(mapStateToProps, { updateTask })(EditTaskModal);

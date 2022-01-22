@@ -4,6 +4,9 @@ import {
   TASKS_ERROR,
   ADD_TASK,
   DELETE_TASK,
+  CLEAR_CURRENT,
+  SET_CURRENT,
+  UPDATE_TASK,
 } from './types';
 
 // Get All Tasks From Server
@@ -73,6 +76,48 @@ export const deleteTask = (id) => async (dispatch) => {
       payload: err.response.data,
     });
   }
+};
+
+// Update Task by ID from the server
+export const updateTask = (task) => async (dispatch) => {
+  try {
+    setLoading();
+
+    const res = await fetch(`/tasks/${task.id}`, {
+      method: 'PUT',
+      body: JSON.stringify(task),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const data = await res.json();
+
+    dispatch({
+      type: UPDATE_TASK,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: TASKS_ERROR,
+      payload: err.response.data,
+    });
+  }
+};
+
+// Set Current Task
+export const setCurrent = (task) => {
+  return {
+    type: SET_CURRENT,
+    payload: task,
+  };
+};
+
+// Clear Current Task
+export const clearCurrent = () => {
+  return {
+    type: CLEAR_CURRENT,
+  };
 };
 
 // Set Loading To True
