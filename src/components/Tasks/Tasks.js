@@ -1,27 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PreLoader from '../layout/PreLoader';
 import TaskItem from './TaskItem';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getTasks } from '../../actions/taskAction';
 
-const Tasks = () => {
-  const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(false);
-
+const Tasks = ({ task: { tasks, loading }, getTasks }) => {
   useEffect(() => {
-    getTasks();
-    //eslint-disable-next-line
+    getTasks(); //  getTasks() is defined in actions/taskAction.js and is called in the mapStateToProps function above
+
+    // eslint-disable-next-line
   }, []);
 
-  const getTasks = async () => {
-    setLoading(true);
-
-    const res = await fetch('/tasks');
-    const data = await res.json();
-
-    setTasks(data);
-    setLoading(false);
-  };
-
-  if (loading) {
+  if (loading || tasks === null) {
     return <PreLoader />;
   }
 
@@ -39,4 +30,12 @@ const Tasks = () => {
   );
 };
 
-export default Tasks;
+Tasks.prototypes = {
+  task: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  task: state.task,
+});
+
+export default connect(mapStateToProps, { getTasks })(Tasks);

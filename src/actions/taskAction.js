@@ -4,7 +4,9 @@ export const getTasks = () => async (dispatch) => {
   try {
     const res = await fetch('/tasks');
     const data = await res.json();
+
     dispatch({
+      // dispatch is defined in src/store.js and is used to dispatch an action to the store
       type: GET_TASKS,
       payload: data,
     });

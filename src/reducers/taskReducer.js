@@ -1,5 +1,6 @@
 import { GET_TASKS, SET_LOADING, TASKS_ERROR } from '../actions/types';
 
+// initialState is defined in src/reducers/taskReducer.js and is used in the mapStateToProps function above to define the initial state of the reducer function below (taskReducer) and to define the initial state of the component (Tasks) in src/components/Tasks/Tasks.js   (task: { tasks: [], loading: false })
 const initialState = {
   tasks: null,
   current: null,
