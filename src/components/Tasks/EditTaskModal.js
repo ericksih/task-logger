@@ -20,6 +20,8 @@ const EditTaskModal = ({ updateTask, current }) => {
   const onSubmit = () => {
     if (!message || !user) {
       M.toast({
+        // html: 'Please enter a message and select a user',
+        // classes: 'red darken-2',
         html: 'Please enter a message and select a user',
         classes: 'red darken-2',
       });

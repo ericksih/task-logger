@@ -26,7 +26,7 @@ export const getTasks = () => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: TASKS_ERROR,
-      payload: err.response.data,
+      payload: err.response.statusText,
     });
   }
 };
@@ -53,7 +53,7 @@ export const addTask = (task) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: TASKS_ERROR,
-      payload: err.response.data,
+      payload: err.response.statusText,
     });
   }
 };
@@ -74,7 +74,7 @@ export const deleteTask = (id) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: TASKS_ERROR,
-      payload: err.response.data,
+      payload: err.response.statusText,
     });
   }
 };
@@ -101,7 +101,7 @@ export const updateTask = (task) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: TASKS_ERROR,
-      payload: err.response.data,
+      payload: err.response.statusText,
     });
   }
 };
@@ -121,7 +121,7 @@ export const searchTasks = (text) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: TASKS_ERROR,
-      payload: err.response.data,
+      payload: err.response.statusText,
     });
   }
 };
