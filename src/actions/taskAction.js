@@ -7,6 +7,7 @@ import {
   CLEAR_CURRENT,
   SET_CURRENT,
   UPDATE_TASK,
+  SEARCH_TASKS,
 } from './types';
 
 // Get All Tasks From Server
@@ -95,6 +96,26 @@ export const updateTask = (task) => async (dispatch) => {
 
     dispatch({
       type: UPDATE_TASK,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: TASKS_ERROR,
+      payload: err.response.data,
+    });
+  }
+};
+
+// Search Task
+export const searchTasks = (text) => async (dispatch) => {
+  try {
+    setLoading();
+
+    const res = await fetch(`/tasks?q=${text}`);
+    const data = await res.json();
+
+    dispatch({
+      type: SEARCH_TASKS,
       payload: data,
     });
   } catch (err) {
