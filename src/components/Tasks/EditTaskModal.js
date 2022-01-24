@@ -83,7 +83,7 @@ const EditTaskModal = ({ updateTask, current }) => {
               <label>
                 <input
                   type='checkbox'
-                  className='filled-in'
+                  className='indeterminate-checkbox'
                   checked={attention}
                   value={attention}
                   onChange={(e) => setAttention(!attention)}

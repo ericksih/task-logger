@@ -4,12 +4,20 @@ const AddBtn = () => {
   return (
     <div className='fixed-action-btn'>
       <a
-        href='#add-task-modal'
-        className='btn-floating btn-large blue darken-2 modal-trigger'
+        href='#main-app'
+        className='btn-floating cyan pulse btn-large blue darken-1 modal-trigger'
       >
-        <i className='large material-icons'>add</i>
+        <i className='material-icons'>menu</i>
       </a>
       <ul>
+        <li>
+          <a
+            href='#add-task-modal'
+            className='btn-floating blue darken-2 modal-trigger'
+          >
+            <i className='large material-icons'>add</i>
+          </a>
+        </li>
         <li>
           <a
             href='#user-list-modal'

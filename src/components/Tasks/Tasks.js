@@ -17,16 +17,18 @@ const Tasks = ({ task: { tasks, loading }, getTasks }) => {
   }
 
   return (
-    <ul className='collection with-header'>
-      <li className='collection-header'>
-        <h4 className='center'>Task List</h4>
-      </li>
-      {!loading && tasks.length === 0 ? (
-        <p className='center'> No Task To Show... </p>
-      ) : (
-        tasks.map((task) => <TaskItem task={task} key={task.id} />)
-      )}
-    </ul>
+    <div id='main-app'>
+      <ul className='collection with-header'>
+        <li className='collection-header'>
+          <h4 className='center'>Task List</h4>
+        </li>
+        {!loading && tasks.length === 0 ? (
+          <p className='center'> No Task To Show... </p>
+        ) : (
+          tasks.map((task) => <TaskItem task={task} key={task.id} />)
+        )}
+      </ul>
+    </div>
   );
 };
 

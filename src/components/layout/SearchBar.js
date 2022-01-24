@@ -10,6 +10,11 @@ const SearchBar = ({ searchTasks }) => {
     searchTasks(text.current.value);
   };
 
+  const clear = () => {
+    text.current.value = '';
+    searchTasks('');
+  };
+
   return (
     <nav style={{ marginBottom: '30px' }} className='teal lighten-2'>
       <div className='nav-wrapper'>
@@ -25,7 +30,9 @@ const SearchBar = ({ searchTasks }) => {
             <label className='label-icon' htmlFor='search'>
               <i className='material-icons'>search</i>
             </label>
-            <i className='material-icons'>close</i>
+            <i className='material-icons' onClick={clear}>
+              close
+            </i>
           </div>
         </form>
       </div>
