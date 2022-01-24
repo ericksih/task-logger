@@ -3,6 +3,7 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addTask } from '../../actions/taskAction';
+import UserSelectOptions from '../Users/UserSelectOptions';
 
 const AddTaskModal = ({ addTask }) => {
   const [message, setMessage] = useState('');
@@ -64,9 +65,7 @@ const AddTaskModal = ({ addTask }) => {
               <option value='' disabled>
                 Select Assignee User
               </option>
-              <option value='Doel'>Doel</option>
-              <option value='Mandra'>Mandra</option>
-              <option value='Jaenap'>Jaenap</option>
+              <UserSelectOptions />
             </select>
           </div>
         </div>

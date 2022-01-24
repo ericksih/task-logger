@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { addUser } from '../../actions/userAction';
 
-const AddUserModal = () => {
+const AddUserModal = ({ addUser }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
@@ -12,7 +15,12 @@ const AddUserModal = () => {
         classes: 'red darken-2',
       });
     } else {
-      console.log(firstName, lastName);
+      addUser({
+        firstName,
+        lastName,
+      });
+
+      // Clear Fields after submit
       setFirstName('');
       setLastName('');
       M.toast({
@@ -68,4 +76,8 @@ const AddUserModal = () => {
   );
 };
 
-export default AddUserModal;
+AddUserModal.propTypes = {
+  addUser: PropTypes.func.isRequired,
+};
+
+export default connect(null, { addUser })(AddUserModal);

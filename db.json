@@ -1,13 +1,6 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "message": "Hello update by mandraass",
-      "user": "Doel",
-      "attention": true,
-      "date": "2022-01-23T22:37:49.522Z"
-    },
-    {
       "message": "Hello ",
       "user": "Jaenap",
       "attention": false,
@@ -24,14 +17,9 @@
   ],
   "users": [
     {
-      "id": 1,
-      "firstName": "Jane",
-      "lastName": "Roe"
-    },
-    {
-      "id": 2,
-      "firstName": "Jack",
-      "lastName": "Doe"
+      "firstName": "First",
+      "lastName": "User",
+      "id": 1
     }
   ]
 }
