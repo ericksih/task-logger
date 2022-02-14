@@ -16,7 +16,12 @@ const SearchBar = ({ searchTasks }) => {
   };
 
   return (
-    <nav style={{ marginBottom: '30px' }} className='teal lighten-2'>
+    <nav
+      className='teal lighten-2'
+      style={{
+        marginBottom: '10px',
+      }}
+    >
       <div className='nav-wrapper'>
         <form>
           <div className='input-field'>

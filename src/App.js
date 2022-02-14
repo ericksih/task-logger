@@ -11,6 +11,7 @@ import AddUserModal from './components/Users/AddUserModal';
 import UserListModel from './components/Users/UserListModel';
 import store from './store';
 import { Provider } from 'react-redux';
+import Info from './components/layout/Info';
 
 function App() {
   useEffect(() => {
@@ -22,6 +23,7 @@ function App() {
       <Fragment>
         <SearchBar />
         <div className='container'>
+          <Info />
           <AddBtn />
           <Tasks />
           <AddTaskModal />
