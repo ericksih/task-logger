@@ -1,18 +1,18 @@
 {
   "tasks": [
     {
-      "message": "Hello, World!!!",
-      "user": "First User",
-      "attention": true,
-      "date": "2022-02-14T22:28:35.974Z",
-      "id": 1
-    },
-    {
       "id": 2,
       "message": "lorem edited",
       "user": "Second Acc",
       "attention": false,
       "date": "2022-02-14T23:08:52.622Z"
+    },
+    {
+      "message": "Hello update by mandra",
+      "user": "First User",
+      "attention": true,
+      "date": "2022-03-19T00:16:29.255Z",
+      "id": 3
     }
   ],
   "users": [
@@ -20,11 +20,6 @@
       "firstName": "First",
       "lastName": "User",
       "id": 1
-    },
-    {
-      "firstName": "Second",
-      "lastName": "Acc",
-      "id": 2
     }
   ]
 }
